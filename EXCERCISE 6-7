@@ -1,0 +1,33 @@
+EXCERCISE 6
+ 1. Find the domestic and international sales for each movie
+SELECT Title, Domestic_Sales, International_Sales
+FROM Movies;
+
+2. Movies that did better internationally than domestically
+SELECT Title, Domestic_Sales, International_Sales
+FROM Movies
+WHERE International_Sales > Domestic_Sales;
+
+3. List all the movies by their ratings (highest to lowest)
+SELECT Title, Rating
+FROM Movies
+ORDER BY Rating DESC;
+
+
+EXCERCISE 7
+ 1. Find the list of all buildings that have employees
+SELECT DISTINCT Building
+FROM Employees;
+
+ 2. Find the list of all buildings and their capacity
+SELECT Building_Name, Capacity
+FROM Buildings;
+
+ 3. List all buildings and distinct employee roles in each (including empty buildings)
+SELECT b.Building_Name, e.Role
+FROM Buildings b
+LEFT JOIN Employees e
+ON b.Building_Name = e.Building
+GROUP BY b.Building_Name, e.Role;
+
+
