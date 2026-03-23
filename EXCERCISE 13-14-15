@@ -1,0 +1,43 @@
+EXCERCISE 13
+1. Add Toy Story 4 to the Movies table
+INSERT INTO Movies (Title, Director, Year, Studio)
+VALUES ('Toy Story 4', 'John Lasseter', 2019, 'Pixar');
+
+2. Add Toy Story 4 record to BoxOffice table
+INSERT INTO BoxOffice (Movie_Id, Rating, Domestic_Sales, International_Sales)
+VALUES (
+    (SELECT Id FROM Movies WHERE Title = 'Toy Story 4'),
+    8.7,
+    340,
+    270
+);
+
+
+
+EXCERCISE 14
+ 1. Correct the director of A Bug's Life
+UPDATE Movies
+SET Director = 'John Lasseter'
+WHERE Title = "A Bug's Life";
+
+ 2. Correct the release year of Toy Story 2
+UPDATE Movies
+SET Year = 1999
+WHERE Title = 'Toy Story 2';
+
+ 3. Correct title and director for Toy Story 8
+UPDATE Movies
+SET Title = 'Toy Story 3',
+    Director = 'Lee Unkrich'
+WHERE Title = 'Toy Story 8';
+
+
+
+EXCERCISE 15
+ 1. Remove all movies released before 2005
+DELETE FROM Movies
+WHERE Year < 2005;
+
+ 2. Remove all movies directed by Andrew Stanton
+DELETE FROM Movies
+WHERE Director = 'Andrew Stanton';
