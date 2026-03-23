@@ -1,0 +1,68 @@
+EXCERCISE 4
+ 1. List all directors of Pixar movies (alphabetically), without duplicates
+SELECT DISTINCT Director
+FROM Movies
+WHERE Studio = 'Pixar'
+ORDER BY Director ASC;
+
+ 2. List the last four Pixar movies released (most recent to least)
+SELECT Title, Year
+FROM Movies
+WHERE Studio = 'Pixar'
+ORDER BY Year DESC
+LIMIT 4;
+
+ 3. List the first five Pixar movies sorted alphabetically
+SELECT Title
+FROM Movies
+WHERE Studio = 'Pixar'
+ORDER BY Title ASC
+LIMIT 5;
+
+ 4. List the next five Pixar movies sorted alphabetically
+SELECT Title
+FROM Movies
+WHERE Studio = 'Pixar'
+ORDER BY Title ASC
+LIMIT 5 OFFSET 5;
+
+EXCERCISE 5
+
+ 1. List all the Canadian cities and their populations
+SELECT City, Population
+FROM Cities
+WHERE Country = 'Canada';
+
+ 2. Order all the cities in the United States from north to south
+SELECT City, Latitude
+FROM Cities
+WHERE Country = 'United States'
+ORDER BY Latitude DESC;
+
+3. List all the cities west of Chicago, ordered from west to east
+SELECT City, Longitude
+FROM Cities
+WHERE Longitude < (
+    SELECT Longitude FROM Cities WHERE City = 'Chicago'
+)
+ORDER BY Longitude ASC;
+
+4. List the two largest cities in Mexico (by population)
+SELECT City, Population
+FROM Cities
+WHERE Country = 'Mexico'
+ORDER BY Population DESC
+LIMIT 2;
+
+5. List the 3rd and 4th largest cities in the United States
+SELECT City, Population
+FROM Cities
+WHERE Country = 'United States'
+ORDER BY Population DESC
+LIMIT 2 OFFSET 2;
+
+
+
+
+
+
